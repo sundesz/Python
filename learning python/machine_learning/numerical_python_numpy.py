@@ -1,26 +1,5 @@
-import os
-import sys
+import numpy
 
-print("Welcome")
+arr = numpy.array([1, 2, 3, 4, 5])
 
-
-# with open("script.py", "a") as f:
-#     f.write("From python file")
-
-# f = open("script.py", "r")
-# print(f.readline())
-# print(f.read())
-# for i in f:
-#     print(i)
-# f.close()
-
-
-with open("test.txt", "w") as f:
-    f.write("Hello world")
-
-with open("test.txt", "r") as f:
-    print(f.read())
-
-os.remove("test.txt")
-
-print(sys.path)
+print(arr)
