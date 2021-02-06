@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% for product in products %}
+<ul>
+    <li>{{ product.title }}</li>
+    <li>
+        {% if product.description == '' or product.description is None %}
+            Description comming soon
+        {% else %}
+            {{ product.description }}
+        {% endif %}
+    </li>
+    <li>{{ product.price }}</li>
+    <li>{{ product.summary }}</li>
+</ul>
+{% endfor %}
+
+{% endblock %}

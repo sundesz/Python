@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> In APP </h1>
+{% for product in object_list %}
+<ul>
+    <li>
+        static <a href="/products/{{ product.id }}/">{{ product.title }}</a>
+    </li>
+    <li>
+        dynamic not working <a href="{{ instance.get_absolute_path }}">{{ product.title }}</a>
+    </li>
+    <li>
+        {% if product.description == '' or product.description is None %}
+            Description comming soon
+        {% else %}
+            {{ product.description }}
+        {% endif %}
+    </li>
+    <li>{{ product.price }}</li>
+    <li>{{ product.summary }}</li>
+</ul>
+{% endfor %}
+
+{% endblock %}

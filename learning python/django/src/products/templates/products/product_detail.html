@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> In APP </h1>
+
+<ul>
+    <li>{{ product.title }}</li>
+    <li>
+        {% if product.description == '' or product.description is None %}
+            Description comming soon
+        {% else %}
+            {{ product.description }}
+        {% endif %}
+    </li>
+    <li>{{ product.price }}</li>
+    <li>{{ product.summary }}</li>
+</ul>
+
+{% endblock %}
