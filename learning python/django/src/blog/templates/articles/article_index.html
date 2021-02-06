@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1><a href="/blog/create/">Create new article</a></h1>
+
+
+<table style="width:100%" border="1">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Is active</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+        {% for article in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.content }}</td>
+                <td>{{ article.is_active }}</td>
+                <td>
+                    <a href="{{ article.get_absolute_url }}">Update</a> /
+                    <a href="{{ article.get_delete_url }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    {% else %}
+    <tr>
+        <td colspan="5"></td>
+    </tr>
+    {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}

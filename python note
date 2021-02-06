@@ -12,7 +12,9 @@ deactivate
 
 
 django-admin startproject trydjango . => trydjango = name
-
+#custom application
+python manage.py startapp products
+python manage.py startapp blog
 
 runserver
 python manage.py runserver
@@ -23,10 +25,9 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
-#custom application
-python manage.py startapp products
-python manage.py startapp blog
+
 
 
 
 python manage.py shell
+from blog.models import Article
