@@ -24,6 +24,7 @@ urlpatterns = [
     path("products/", include("products.urls")),
     path("blog/", include("blog.urls")),
     path("reviews/", include("reviews.urls")),
+    path("promotions/", include("promotions.urls")),
     path("", home_view, name="home"),
     path("home/", home_view, name="home"),
     path("about/", about_view),

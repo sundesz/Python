@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1><a href="/promotions/create/">Create new promotion</a></h1>
+
+<table style="width:100%" border="1">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Is Active</th>
+            <th>Effective date</th>
+            <th>Expiration date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+        {% for promotion in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ promotion.name }}</td>
+                <td>{{ promotion.promotion_type }}</td>
+                <td>{{ promotion.description }}</td>
+                <td>{{ promotion.is_active }}</td>
+                <td>{{ promotion.effective_date }}</td>
+                <td>{{ promotion.expiration_date }}</td>
+                <td>
+                    <a href="{{ promotion.get_absolute_url_update }}">Update</a> /
+                    <a href="{{ promotion.get_absolute_url_delete }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    {% else %}
+    <tr>
+        <td colspan="8" style="text-align:center"><h3>No Records Found</h3></td>
+    </tr>
+    {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}
