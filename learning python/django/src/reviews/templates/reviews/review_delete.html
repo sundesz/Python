@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure to delete <b>{{ object.name }}</b> ?</p>
+    <input type="submit" value="Delete"/>
+    <a href="{{ object.get_absolute_url_review }}">Cancel</a>
+</form>
+{% endblock %}
