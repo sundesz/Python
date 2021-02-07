@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1><a href="/reviews/create/">Create new review</a></h1>
+
+
+<table style="width:100%" border="1">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>User name</th>
+            <th>Reviews</th>
+            <th>Rating</th>
+            <th>Rating date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+        {% for review in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ review.name }}</td>
+                <td>{{ review.description }}</td>
+                <td>{{ review.rating }}</td>
+                <td>{{ review.created }}</td>
+                <td>
+                    <a href="{{ created.get_absolute_url }}">Update</a> /
+                    <a href="{{ created.get_delete_url }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    {% else %}
+    <tr>
+        <td colspan="6" style="text-align:center"><h3>No Reviews Found</h3></td>
+    </tr>
+    {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}
