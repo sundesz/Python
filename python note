@@ -18,8 +18,11 @@ python manage.py startapp blog
 
 runserver
 python manage.py runserver
+python manage.py runserver 0:5000
 
 
+python .\manage.py showmigrations
+python manage.py showmigrations
 python manage.py makemigrations
 python manage.py migrate
 
@@ -30,4 +33,16 @@ python manage.py createsuperuser
 
 
 python manage.py shell
+python manage.py dbshell
 from blog.models import Article
+
+
+
+Jinja template
+
+
+
+display post by name in django admin
+in models.py
+def __str__(self):
+	return f"self.title"
